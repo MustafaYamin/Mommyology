@@ -64,8 +64,8 @@ const socialLinks = [
 
 const Footer = () => {
 	return (
-		<footer className="w-full bg-[#6B5AA2] text-[#FDE047] py-10 px-4 flex flex-col items-center relative mt-10 shadow-inner overflow-visible border-t-4 border-[#FDE047]">
-			<div className="flex flex-col md:flex-row items-center justify-between w-full max-w-3xl mx-auto gap-6 z-10">
+		<footer className="w-full bg-[#6B5AA2] text-[#FDE047] py-8 px-4 flex flex-col items-center relative mt-10 shadow-inner overflow-visible border-t-4 border-[#FDE047] z-10">
+			<div className="flex flex-col md:flex-row items-center justify-between w-full max-w-3xl mx-auto gap-6">
 				<div className="flex items-center gap-4">
 					<Image
 						src="/Images/logo.jpg"
