@@ -67,7 +67,7 @@ const EventsSection = () => {
             Past Events
           </h2>
           <p className="text-xl text-[#6B5AA2]/80 max-w-4xl mx-auto leading-relaxed">
-            Take a look at some of our most memorable events and the amazing experiences we've created for children.
+            Take a look at some of our most memorable events and the amazing experiences we&apos;ve created for children.
           </p>
         </motion.div>
 
@@ -131,7 +131,7 @@ const EventsSection = () => {
               Upcoming Events
             </h3>
             <p className="text-lg text-[#6B5AA2]/80 leading-relaxed mb-6">
-              Stay tuned for our upcoming events! We're always planning new adventures and experiences for your children.
+              Stay tuned for our upcoming events! We&apos;re always planning new adventures and experiences for your children.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button className="px-8 py-4 bg-gradient-to-r from-[#FDE047] to-[#FDE047]/90 text-[#6B5AA2] font-bold text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-[#45C8F0] hover:bg-[#45C8F0] hover:text-white">

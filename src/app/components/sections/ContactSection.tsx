@@ -58,7 +58,7 @@ const ContactSection = () => {
             Contact Us
           </h2>
           <p className="text-xl text-[#6B5AA2]/80 max-w-4xl mx-auto leading-relaxed">
-            Want to join an event or partner with us? Reach out and let's make magic happen!
+            Want to join an event or partner with us? Reach out and let&apos;s make magic happen!
           </p>
         </motion.div>
 
@@ -112,7 +112,7 @@ const ContactSection = () => {
 
               <div>
                 <label htmlFor="interest" className="block text-sm font-semibold text-[#6B5AA2] mb-2">
-                  I'm interested in
+                  I&apos;m interested in
                 </label>
                 <select
                   id="interest"
@@ -168,8 +168,8 @@ const ContactSection = () => {
                 Get in Touch
               </h3>
               <p className="text-[#6B5AA2]/80 leading-relaxed mb-8">
-                We'd love to hear from you! Whether you have questions about our programs, 
-                want to partner with us, or just want to say hello, we're here to help.
+                We&apos;d love to hear from you! Whether you have questions about our programs, 
+                want to partner with us, or just want to say hello, we&apos;re here to help.
               </p>
             </div>
 
