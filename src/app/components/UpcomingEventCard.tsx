@@ -28,9 +28,16 @@ const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({ title, image, tim
     <>
       <div
         className="relative border border-[#FDE047]/40 rounded-3xl shadow-lg w-full max-w-sm sm:max-w-md mx-auto h-80 sm:h-96 md:h-[420px] flex flex-col items-center justify-center text-center overflow-hidden cursor-pointer"
-        style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
         onClick={handleCardClick}
       >
+        {/* Background Image */}
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 400px"
+        />
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full w-full px-4 sm:px-6">
           <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 font-['Comic_Sans_MS','Comic_Sans','cursive'] drop-shadow-lg">{title}</h4>

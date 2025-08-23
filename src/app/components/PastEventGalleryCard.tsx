@@ -30,8 +30,15 @@ const PastEventGalleryCard: React.FC<PastEventGalleryCardProps> = ({ title, imag
       <div
         className="relative rounded-2xl overflow-hidden shadow-lg cursor-pointer group h-48 sm:h-56 flex flex-col justify-end bg-gray-100"
         onClick={handleCardClick}
-        style={{ backgroundImage: `url(${images[0]})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
+        {/* Background Image */}
+        <Image
+          src={images[0]}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
+        />
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300" />
         <div className="relative z-10 p-3 sm:p-4">
           <h4 className="text-base sm:text-lg font-bold text-white drop-shadow font-['Comic_Sans_MS','Comic_Sans','cursive']">{title}</h4>
