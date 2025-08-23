@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 const ServicesSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -105,9 +106,11 @@ const ServicesSection = () => {
               <div className="relative z-10 flex flex-col items-center">
                 {/* Service image */}
                 <div className="mb-3 sm:mb-4 w-full flex justify-center">
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.title}
+                    width={280}
+                    height={120}
                     className="rounded-xl w-full max-w-[200px] sm:max-w-[250px] md:max-w-[280px] h-20 sm:h-24 md:h-[120px] object-cover border-2 sm:border-4 border-white shadow-md hover:scale-105 transition-transform duration-300"
                   />
                 </div>

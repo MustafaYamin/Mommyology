@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 interface UpcomingEventCardProps {
   title: string;
@@ -45,7 +46,13 @@ const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({ title, image, tim
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" onClick={handleClose}>
           <div className="bg-white rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 w-full max-w-sm sm:max-w-2xl relative flex flex-col items-center max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
             <button className="absolute top-2 sm:top-4 right-2 sm:right-4 text-2xl sm:text-3xl text-[#6B5AA2] hover:text-[#45C8F0]" onClick={handleClose} aria-label="Close">&times;</button>
-            <img src={image} alt={title} className="rounded-2xl w-full max-h-60 sm:max-h-80 md:max-h-[400px] object-cover mb-4 sm:mb-6" />
+            <Image 
+              src={image} 
+              alt={title} 
+              width={800}
+              height={600}
+              className="rounded-2xl w-full max-h-60 sm:max-h-80 md:max-h-[400px] object-cover mb-4 sm:mb-6" 
+            />
             <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#6B5AA2] mb-3 sm:mb-4 font-['Comic_Sans_MS','Comic_Sans','cursive'] text-center">{title}</h4>
             <div className="flex flex-col gap-3 sm:gap-4 w-full items-center mb-4 sm:mb-6">
               <span className="inline-block px-3 sm:px-4 py-2 bg-[#45C8F0]/80 text-white rounded-full text-sm sm:text-lg font-semibold w-fit">{time}</span>

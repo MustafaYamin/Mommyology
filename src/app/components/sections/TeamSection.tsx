@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion';
 import React from 'react';
+import Image from 'next/image';
 
 interface TeamMember {
   id: number;
@@ -104,9 +105,11 @@ const TeamSection = () => {
             >
               {/* Member Image */}
               <div className="relative mb-3 sm:mb-4">
-                <img
+                <Image
                   src={member.image}
                   alt={member.name}
+                  width={400}
+                  height={160}
                   className="w-full h-32 sm:h-40 object-cover rounded-xl"
                 />
               </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface ActivityData {
   icon: string;
@@ -53,10 +54,12 @@ const ActivityCardWithModal: React.FC<ActivityCardWithModalProps> = ({ activity,
             {/* Images on the left */}
             <div className="md:w-1/2 w-full flex flex-col gap-3 sm:gap-4 items-center justify-center mb-4 sm:mb-6 md:mb-0 md:mr-4 md:mr-8">
               {activity.images.map((img: string, idx: number) => (
-                <img 
+                <Image 
                   key={idx} 
                   src={img} 
                   alt={activity.title + ' image'} 
+                  width={400}
+                  height={300}
                   className="rounded-xl w-full object-cover max-h-48 sm:max-h-64 md:max-h-80" 
                 />
               ))}

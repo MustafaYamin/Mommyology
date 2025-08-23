@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 interface PastEventGalleryCardProps {
   title: string;
@@ -46,7 +47,13 @@ const PastEventGalleryCard: React.FC<PastEventGalleryCardProps> = ({ title, imag
               {images.length > 1 && (
                 <button className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-1 sm:p-2 text-lg sm:text-xl z-10 hover:bg-white transition-colors duration-200" onClick={handlePrev}>&lt;</button>
               )}
-              <img src={images[current]} alt={title} className="rounded-2xl w-full max-h-60 sm:max-h-80 md:max-h-[500px] object-contain mb-3 sm:mb-4" />
+              <Image 
+                src={images[current]} 
+                alt={title} 
+                width={800}
+                height={600}
+                className="rounded-2xl w-full max-h-60 sm:max-h-80 md:max-h-[500px] object-contain mb-3 sm:mb-4" 
+              />
               {images.length > 1 && (
                 <button className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-1 sm:p-2 text-lg sm:text-xl z-10 hover:bg-white transition-colors duration-200" onClick={handleNext}>&gt;</button>
               )}

@@ -1,12 +1,9 @@
 'use client'
 import HeroSection from "./components/sections/HeroSection";
-import PartnersSection from "./components/sections/PartnersSection";
 import AboutSection from "./components/sections/AboutSection";
 import ServicesSection from "./components/sections/ServicesSection";
 import EventsSection from "./components/sections/EventsSection";
 import ContactSection from "./components/sections/ContactSection";
-import UpcomingEventCard from "./components/UpcomingEventCard";
-// import { ContactSection } from "./components/sections/ContactSection";
 import TeamSection from "./components/sections/TeamSection";
 
 export default function HomePage() {
