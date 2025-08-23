@@ -98,34 +98,53 @@ html {
   padding-right: 1rem;
 }
 
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Ensure touch targets are at least 44px */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve modal scrolling on mobile */
+  .modal-content {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  /* Better text readability on small screens */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
   }
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
+/* Improved modal responsiveness */
+.modal-overlay {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
+/* Better focus management for accessibility */
+.focus-visible {
+  outline: 2px solid #45C8F0;
+  outline-offset: 2px;
 }
 
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
+/* Smooth transitions for all interactive elements */
+button, a, input, textarea, select {
+  transition: all 0.2s ease-in-out;
 }
 
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+}
+
+/* Better image handling on mobile */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Utility classes */

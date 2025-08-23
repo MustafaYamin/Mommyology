@@ -27,21 +27,21 @@ const ContactSection = () => {
     {
       icon: "📧",
       title: "Email Us",
-      description: "info@mommyology.com",
-      action: "mailto:info@mommyology.com"
+      description: "info.mommyology@gmail.com",
+      action: "mailto:info.mommyology@gmail.com"
     },
     {
       icon: "📱",
       title: "Call Us",
-      description: "+1 (555) 123-4567",
-      action: "tel:+15551234567"
+      description: "+92 332 3722139",
+      action: "tel:+92 332 3722139"
     },
-    {
-      icon: "📍",
-      title: "Visit Us",
-      description: "123 Nature Way, Green City",
-      action: "#"
-    }
+    // {
+    //   icon: "📍",
+    //   title: "Visit Us",
+    //   description: "123 Nature Way, Green City",
+    //   action: "#"
+    // }
   ];
 
   return (
@@ -62,21 +62,21 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 shadow-xl border-2 border-[#FDE047]/20"
+            className="bg-white rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border-2 border-[#FDE047]/20"
           >
-            <h3 className="text-2xl font-bold text-[#6B5AA2] mb-6 font-['Comic_Sans_MS','Comic_Sans','cursive']">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#6B5AA2] mb-4 sm:mb-6 font-['Comic_Sans_MS','Comic_Sans','cursive']">
               Send us a Message
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-[#6B5AA2] mb-2">
                     Name *
@@ -88,7 +88,7 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white text-sm sm:text-base"
                     placeholder="Your name"
                   />
                 </div>
@@ -104,7 +104,7 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white text-sm sm:text-base"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -119,7 +119,7 @@ const ContactSection = () => {
                   name="interest"
                   value={formData.interest}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white text-sm sm:text-base"
                 >
                   <option value="">Select an option</option>
                   <option value="events">Joining Events</option>
@@ -140,15 +140,15 @@ const ContactSection = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full px-4 py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white resize-none"
+                  rows={4}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white resize-none text-sm sm:text-base"
                   placeholder="Tell us more about what you're looking for..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-gradient-to-r from-[#FDE047] to-[#FDE047]/90 text-[#6B5AA2] font-bold text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-[#45C8F0] hover:bg-[#45C8F0] hover:text-white"
+                className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#FDE047] to-[#FDE047]/90 text-[#6B5AA2] font-bold text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-[#45C8F0] hover:bg-[#45C8F0] hover:text-white"
               >
                 Send Message
               </button>
@@ -161,45 +161,48 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-[#6B5AA2] mb-6 font-['Comic_Sans_MS','Comic_Sans','cursive']">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#6B5AA2] mb-4 sm:mb-6 font-['Comic_Sans_MS','Comic_Sans','cursive']">
                 Get in Touch
               </h3>
-              <p className="text-[#6B5AA2]/80 leading-relaxed mb-8">
+              <p className="text-sm sm:text-base text-[#6B5AA2]/80 leading-relaxed mb-6 sm:mb-8">
                 We&apos;d love to hear from you! Whether you have questions about our programs, 
                 want to partner with us, or just want to say hello, we&apos;re here to help.
               </p>
             </div>
 
-            <div className="space-y-6">
-              {contactMethods.map((method, index) => (
-                <motion.a
-                  key={index}
-                  href={method.action}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-transparent hover:border-[#45C8F0] group"
-                >
-                  <div className="text-4xl mr-4 group-hover:scale-110 transition-transform duration-300">
-                    {method.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-[#6B5AA2] mb-1 font-['Comic_Sans_MS','Comic_Sans','cursive']">
-                      {method.title}
-                    </h4>
-                    <p className="text-[#6B5AA2]/80">
-                      {method.description}
-                    </p>
-                  </div>
-                </motion.a>
-              ))}
+            <div className="space-y-4 sm:space-y-6">
+            {contactMethods.map((method, index) => (
+  <motion.a
+    key={index}
+    href={method.action}
+    rel="noopener noreferrer"
+    target={method.action.startsWith("http") ? "_blank" : "_self"}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: index * 0.1 }}
+    viewport={{ once: true }}
+    className="flex items-center p-4 sm:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-transparent hover:border-[#45C8F0] group"
+  >
+    <div className="text-3xl sm:text-4xl mr-3 sm:mr-4 group-hover:scale-110 transition-transform duration-300">
+      {method.icon}
+    </div>
+    <div>
+      <h4 className="text-base sm:text-lg font-bold text-[#6B5AA2] mb-1 font-['Comic_Sans_MS','Comic_Sans','cursive']">
+        {method.title}
+      </h4>
+      <p className="text-sm sm:text-base text-[#6B5AA2]/80">
+        {method.description}
+      </p>
+    </div>
+  </motion.a>
+))}
+
             </div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -218,7 +221,7 @@ const ContactSection = () => {
               <p className="text-[#6B5AA2]/80">
                 Sunday: Closed
               </p>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>
@@ -226,4 +229,5 @@ const ContactSection = () => {
   );
 };
 
-export default ContactSection; 
+export default ContactSection;
+

@@ -9,7 +9,9 @@ const funFont = "font-['Comic_Sans_MS','Comic_Sans','cursive'] font-extrabold tr
 const navLinks = [
   { href: '#about', label: 'Who We Are' },
   { href: '#services', label: 'What We Do' },
-  { href: '#events', label: 'Past Events' },
+  { href: '#upcoming-events', label: 'Upcoming Events' },
+  { href: '#team', label: 'Our Team' },
+  { href: '#past-events', label: 'Past Events' },
   { href: '#contact', label: 'Contact' },
 ];
 

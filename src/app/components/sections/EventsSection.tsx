@@ -1,61 +1,41 @@
-'use client'
-import { motion } from 'framer-motion';
+"use client";
+import { motion } from "framer-motion";
+import UpcomingEventCard from "../UpcomingEventCard";
+import PastEventGalleryCard from "../PastEventGalleryCard";
 
 const EventsSection = () => {
-  const events = [
-    {
-      title: "Spring Nature Walk",
-      date: "March 15, 2024",
-      description: "A guided exploration of local flora and fauna",
-      image: "/events/event1.jpg",
-      category: "Nature Walk",
-      color: "bg-[#45C8F0]"
-    },
-    {
-      title: "Art in the Park",
-      date: "April 22, 2024",
-      description: "Creative workshops using natural materials",
-      image: "/events/event2.jpg",
-      category: "Art Workshop",
-      color: "bg-[#FDE047]"
-    },
-    {
-      title: "Science Discovery Day",
-      date: "May 10, 2024",
-      description: "Hands-on experiments with nature",
-      image: "/events/event3.jpg",
-      category: "Science",
-      color: "bg-[#6B5AA2]"
-    },
-    {
-      title: "Summer Garden Party",
-      date: "June 5, 2024",
-      description: "Planting and gardening activities",
-      image: "/events/event4.jpg",
-      category: "Gardening",
-      color: "bg-[#45C8F0]"
-    },
-    {
-      title: "Story Time Under the Stars",
-      date: "July 20, 2024",
-      description: "Evening storytelling and stargazing",
-      image: "/events/event5.jpg",
-      category: "Storytelling",
-      color: "bg-[#FDE047]"
-    },
-    {
-      title: "Outdoor Adventure Games",
-      date: "August 12, 2024",
-      description: "Active games in natural settings",
-      image: "/events/event6.jpg",
-      category: "Outdoor Games",
-      color: "bg-[#6B5AA2]"
-    }
-  ];
-
   return (
     <section id="events" className="py-20 bg-gradient-to-br from-[#F8F6FF] to-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Upcoming Events */}
+      <motion.div
+        id="upcoming-events"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        viewport={{ once: true }}
+        className="mt-24 text-center mb-14 py-5 bg-[#6B5AA2] flex flex-col items-center"
+      >
+        <h3 className="text-2xl md:text-3xl font-bold text-[#45C8F0] mb-10 font-['Comic_Sans_MS','Comic_Sans','cursive']">
+          Upcoming Events
+        </h3>
+        <div className="w-full flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6">
+          <UpcomingEventCard
+            title="Pottery Party"
+            image="./images/poteryparty.jpg"
+            time="24th August, 4:00 PM - 5:00 PM"
+            cost="PKR 1200 per kid"
+          />
+          <UpcomingEventCard
+            title="Messy Playday"
+            image="./images/messyplay.jpg"
+            time="24th August, 5:00 PM - 6:30 PM"
+            cost="PKR 1500 per kid"
+          />
+        </div>
+      </motion.div>
+
+      {/* Past Events */}
+      <div id="past-events" className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,82 +47,105 @@ const EventsSection = () => {
             Past Events
           </h2>
           <p className="text-xl text-[#6B5AA2]/80 max-w-4xl mx-auto leading-relaxed">
-            Take a look at some of our most memorable events and the amazing experiences we&apos;ve created for children.
+            Take a look at some of our most memorable events and the amazing experiences <br /> we&apos;ve created for children.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {events.map((event, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border-2 border-transparent hover:border-[#45C8F0]"
-            >
-              {/* Event Image Placeholder */}
-              <div className="h-48 bg-gradient-to-br from-[#FDE047]/20 via-[#45C8F0]/20 to-[#6B5AA2]/20 flex items-center justify-center">
-                <div className="text-4xl opacity-60">{event.category === "Nature Walk" ? "🌿" : 
-                  event.category === "Art Workshop" ? "🎨" :
-                  event.category === "Science" ? "🔬" :
-                  event.category === "Gardening" ? "🌱" :
-                  event.category === "Storytelling" ? "📚" : "🎮"}</div>
-              </div>
-
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <span className={`px-3 py-1 rounded-full text-xs font-bold text-white ${event.color}`}>
-                    {event.category}
-                  </span>
-                  <span className="text-sm text-[#6B5AA2]/60 font-medium">
-                    {event.date}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-bold text-[#6B5AA2] mb-3 group-hover:text-[#45C8F0] transition-colors duration-300 font-['Comic_Sans_MS','Comic_Sans','cursive']">
-                  {event.title}
-                </h3>
-
-                <p className="text-[#6B5AA2]/80 text-sm leading-relaxed mb-4">
-                  {event.description}
-                </p>
-
-                <button className="w-full px-4 py-2 bg-gradient-to-r from-[#45C8F0] to-[#45C8F0]/90 text-white font-semibold rounded-full text-sm hover:bg-[#FDE047] hover:text-[#6B5AA2] transition-all duration-300 transform hover:scale-105">
-                  View Details
-                </button>
-              </div>
-
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#6B5AA2]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
+          {/* <PastEventGalleryCard
+            title="Pets Playdate"
+            images={["/images/petsplaydate/petsplaydate1.jpg", "/images/petsplaydate/petsplaydate2.jpg"]}
+          /> */}
+          <PastEventGalleryCard
+            title="Neon Party"
+            images={["./images/neonparty/np1.jpg",
+               "./images/neonparty/np2.jpg",
+               "./images/neonparty/np3.jpg",
+               "./images/neonparty/np4.jpg",
+               "./images/neonparty/np5.jpg"]}
+          />
+          <PastEventGalleryCard
+            title="Funtopia"
+            images={["./images/funtopia/funtopia1.jpg",
+               "./images/funtopia/funtopia2.jpg",
+               "./images/funtopia/funtopia3.jpg",
+               "./images/funtopia/funtopia4.jpg"]}
+          />
+          <PastEventGalleryCard
+            title="Farmtastic"
+            images={["./images/farmtastic/farm1.jpg",
+               "./images/farmtastic/farm2.jpg",
+               "./images/farmtastic/farm3.jpg",
+               "./images/farmtastic/farm4.jpg",]}
+          />
+          <PastEventGalleryCard
+            title="Flames and Fortes"
+            images={[
+              "./images/flames-and-forts/fnf1.jpg",
+              "./images/flames-and-forts/fnf2.jpg",
+              "./images/flames-and-forts/fnf3.jpg",
+              "./images/flames-and-forts/fnf4.jpg",
+              "./images/flames-and-forts/fnf5.jpg"
+            ]}
+          />
+          <PastEventGalleryCard
+            title="Fishing"
+            images={[
+              "./images/fishing/fishing1.jpg",
+              "./images/fishing/fishing2.jpg",
+              "./images/fishing/fishing3.jpg",
+              "./images/fishing/fishing4.jpg",
+              "./images/fishing/fishing5.jpg"
+            ]}
+          />
+          <PastEventGalleryCard
+            title="Messy Playday"
+            images={[
+              "./images/messy-play-day/mpd1.jpg",
+              "./images/messy-play-day/mpd2.jpg",
+              "./images/messy-play-day/mpd3.jpg",
+              "./images/messy-play-day/mpd4.jpg",
+              "./images/messy-play-day/mpd5.jpg"
+            ]}
+          />
+          <PastEventGalleryCard
+            title="World Book Day"
+            images={[
+              "./images/world-book-day/wbd1.jpg",
+              "./images/world-book-day/wbd2.jpg",
+              "./images/world-book-day/wbd3.jpg",
+              "./images/world-book-day/wbd4.jpg"
+            ]}
+          />
+          <PastEventGalleryCard
+            title="Spring Fling"
+            images={[
+              "./images/spring-fling/springfling1.jpg",
+              "./images/spring-fling/springfling2.jpg",
+              "./images/spring-fling/springfling3.jpg",
+              "./images/spring-fling/springfling4.jpg"
+            ]}
+          />
+          <PastEventGalleryCard
+            title="Mothers Day"
+            images={[
+              "./images/mothers-day/md1.jpg",
+              "./images/mothers-day/md2.jpg",
+              "./images/mothers-day/md3.jpg",
+              "./images/mothers-day/md4.jpg"
+            ]}
+          />
+          <PastEventGalleryCard
+            title="Mangroves"
+            images={[
+              "./images/mangroves-and-team/mangrove1.jpg",
+              "./images/mangroves-and-team/mangrove2.jpg",
+              "./images/mangroves-and-team/mangrove3.jpg",
+              "./images/mangroves-and-team/mangrove4.jpg",
+              "./images/mangroves-and-team/mangrove5.jpg"
+            ]}
+          />
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <div className="bg-gradient-to-r from-[#FDE047]/20 to-[#45C8F0]/20 rounded-3xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#6B5AA2] mb-4 font-['Comic_Sans_MS','Comic_Sans','cursive']">
-              Upcoming Events
-            </h3>
-            <p className="text-lg text-[#6B5AA2]/80 leading-relaxed mb-6">
-              Stay tuned for our upcoming events! We&apos;re always planning new adventures and experiences for your children.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-[#FDE047] to-[#FDE047]/90 text-[#6B5AA2] font-bold text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-[#45C8F0] hover:bg-[#45C8F0] hover:text-white">
-                View Calendar
-              </button>
-              <button className="px-8 py-4 bg-transparent text-[#6B5AA2] font-bold text-lg rounded-full border-2 border-[#6B5AA2] hover:bg-[#6B5AA2] hover:text-white transition-all duration-300 transform hover:scale-105">
-                Subscribe to Updates
-              </button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
