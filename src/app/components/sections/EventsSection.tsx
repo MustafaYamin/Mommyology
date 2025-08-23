@@ -86,6 +86,36 @@ const EventsSection = () => {
                "/Images/flames-and-forts/fnf4.jpg"]}
           />
           <PastEventGalleryCard
+            title="Fishing"
+            images={["/Images/fishing/fishing1.jpg",
+               "/Images/fishing/fishing2.jpg",
+               "/Images/fishing/fishing3.jpg",
+               "/Images/fishing/fishing4.jpg",
+               "/Images/fishing/fishing5.jpg"]}
+          />
+          <PastEventGalleryCard
+            title="Messy Playday"
+            images={["/Images/messy-play-day/mpd1.jpg",
+               "/Images/messy-play-day/mpd2.jpg",
+               "/Images/messy-play-day/mpd3.jpg",
+               "/Images/messy-play-day/mpd4.jpg",
+               "/Images/messy-play-day/mpd5.jpg"]}
+          />
+          <PastEventGalleryCard
+            title="World Book Day"
+            images={["/Images/world-book-day/wbd1.jpg",
+               "/Images/world-book-day/wbd2.jpg",
+               "/Images/world-book-day/wbd3.jpg",
+               "/Images/world-book-day/wbd4.jpg"]}
+          />
+          <PastEventGalleryCard
+            title="Spring Fling"
+            images={["/Images/spring-fling/springfling1.jpg",
+               "/Images/spring-fling/springfling2.jpg",
+               "/Images/spring-fling/springfling3.jpg",
+               "/Images/spring-fling/springfling4.jpg"]}
+          />
+          <PastEventGalleryCard
             title="Mothers Day"
             images={[
               "/Images/Mothers-day/md1.jpg",

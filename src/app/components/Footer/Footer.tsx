@@ -6,7 +6,7 @@ const funFont = "font-['Comic_Sans_MS','Comic_Sans','cursive'] font-extrabold tr
 
 const socialLinks = [
   {
-    href: 'https://facebook.com/mommyology',
+    href: 'https://www.facebook.com/mommmyology',
     label: 'Facebook',
     icon: (
       <svg
@@ -32,7 +32,7 @@ const socialLinks = [
     ),
   },
   {
-    href: 'https://instagram.com/mommyology',
+    href: 'https://www.instagram.com/mommyologyy/',
     label: 'Instagram',
     icon: (
       <svg
@@ -61,26 +61,7 @@ const socialLinks = [
         <circle cx="17" cy="7" r="1.2" fill="#fff" />
       </svg>
     ),
-  },
-  {
-    href: 'https://twitter.com/mommyology',
-    label: 'Twitter',
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        className="w-6 h-6"
-        aria-hidden="true"
-      >
-        <path
-          d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
-          fill="#A78BFA"
-          stroke="#fff"
-          strokeWidth="1.5"
-        />
-      </svg>
-    ),
-  },
+  }
 ];
 
 const quickLinks = [

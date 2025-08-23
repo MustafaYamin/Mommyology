@@ -35,7 +35,7 @@ const TeamSection = () => {
       id: 3,
       name: "Emma Rodriguez",
       role: "Creative Director",
-      image: "./images/mangroves-and-team/mangrove1.jpg",
+      image: "/Images/Mangroves-and-team/mangrove1.jpg",
       bio: "Artist and educator who believes in the power of creative expression and messy play for learning.",
       socials: "https://instagram.com/emmarodriguez"
     },
