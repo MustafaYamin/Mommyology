@@ -1,26 +1,78 @@
-'use client'
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { FaWhatsapp } from "react-icons/fa"; // ✅ Import WhatsApp icon
+"use client";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-    interest: ''
+    name: "",
+    email: "",
+    message: "",
+    interest: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Add automated test to verify form submission and email sending
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      // Replace these with your actual EmailJS credentials
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        interest: formData.interest || "General Inquiry",
+        title: `New Contact Form Submission from ${formData.name}`,
+        to_name: "Mommyology Team",
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      setSubmitStatus("success");
+      // Reset form after successful submission
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+        interest: "",
+      });
+
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 5000);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSubmitStatus("error");
+
+      // Clear error message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -30,18 +82,23 @@ const ContactSection = () => {
       icon: "📧",
       title: "Email Us",
       description: "info.mommyology@gmail.com",
-      action: "mailto:info.mommyology@gmail.com?subject=Hello%20Mommyology&body=I%20would%20like%20to%20know%20more%20about%20your%20programs."
+      action:
+        "mailto:info.mommyology@gmail.com?subject=Hello%20Mommyology&body=I%20would%20like%20to%20know%20more%20about%20your%20programs.",
     },
     {
-      icon: <FaWhatsapp className="text-green-500" />, // ✅ WhatsApp Icon
+      icon: <FaWhatsapp className="text-green-500" />,
       title: "WhatsApp",
       description: "+92 332 3722139",
-      action: "https://wa.me/923323722139?text=Hello%20Mommyology%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20events!"
-    }
+      action:
+        "https://wa.me/923323722139?text=Hello%20Mommyology%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20events!",
+    },
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-white to-[#F8F6FF]">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-br from-white to-[#F8F6FF]"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -54,7 +111,8 @@ const ContactSection = () => {
             Contact Us
           </h2>
           <p className="text-xl text-[#6B5AA2]/80 max-w-4xl mx-auto leading-relaxed">
-            Want to join an event or partner with us? Reach out and let&apos;s make magic happen!
+            Want to join an event or partner with us? Reach out and let&apos;s
+            make magic happen!
           </p>
         </motion.div>
 
@@ -70,11 +128,28 @@ const ContactSection = () => {
             <h3 className="text-xl sm:text-2xl font-bold text-[#6B5AA2] mb-4 sm:mb-6 font-['Comic_Sans_MS','Comic_Sans','cursive']">
               Send us a Message
             </h3>
-            
+
+            {/* Status Messages */}
+            {submitStatus === "success" && (
+              <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-xl">
+                ✅ Message sent successfully! We'll get back to you soon.
+              </div>
+            )}
+
+            {submitStatus === "error" && (
+              <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-xl">
+                ❌ Failed to send message. Please try again or contact us
+                directly.
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-[#6B5AA2] mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-semibold text-[#6B5AA2] mb-2"
+                  >
                     Name *
                   </label>
                   <input
@@ -84,13 +159,17 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white text-sm sm:text-base"
+                    disabled={isSubmitting}
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white text-sm sm:text-base disabled:opacity-50"
                     placeholder="Your name"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-[#6B5AA2] mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-semibold text-[#6B5AA2] mb-2"
+                  >
                     Email *
                   </label>
                   <input
@@ -100,14 +179,18 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white text-sm sm:text-base"
+                    disabled={isSubmitting}
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white text-sm sm:text-base disabled:opacity-50"
                     placeholder="your@email.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="interest" className="block text-sm font-semibold text-[#6B5AA2] mb-2">
+                <label
+                  htmlFor="interest"
+                  className="block text-sm font-semibold text-[#6B5AA2] mb-2"
+                >
                   I&apos;m interested in
                 </label>
                 <select
@@ -115,19 +198,23 @@ const ContactSection = () => {
                   name="interest"
                   value={formData.interest}
                   onChange={handleChange}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white text-sm sm:text-base"
+                  disabled={isSubmitting}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white text-sm sm:text-base disabled:opacity-50"
                 >
                   <option value="">Select an option</option>
-                  <option value="events">Joining Events</option>
-                  <option value="partnership">Partnership</option>
-                  <option value="custom">Custom Programs</option>
-                  <option value="volunteer">Volunteering</option>
-                  <option value="other">Other</option>
+                  <option value="Joining Events">Joining Events</option>
+                  <option value="Partnership">Partnership</option>
+                  <option value="Custom Programs">Custom Programs</option>
+                  <option value="Volunteering">Volunteering</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-[#6B5AA2] mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-semibold text-[#6B5AA2] mb-2"
+                >
                   Message *
                 </label>
                 <textarea
@@ -137,16 +224,18 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white resize-none text-sm sm:text-base"
+                  disabled={isSubmitting}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-[#6B5AA2]/20 rounded-xl focus:border-[#45C8F0] focus:outline-none transition-colors duration-300 bg-white resize-none text-sm sm:text-base disabled:opacity-50"
                   placeholder="Tell us more about what you're looking for..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#FDE047] to-[#FDE047]/90 text-[#6B5AA2] font-bold text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-[#45C8F0] hover:bg-[#45C8F0] hover:text-white"
+                disabled={isSubmitting}
+                className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#FDE047] to-[#FDE047]/90 text-[#6B5AA2] font-bold text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-[#45C8F0] hover:bg-[#45C8F0] hover:text-white disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </motion.div>
@@ -164,8 +253,9 @@ const ContactSection = () => {
                 Get in Touch
               </h3>
               <p className="text-sm sm:text-base text-[#6B5AA2]/80 leading-relaxed mb-6 sm:mb-8">
-                We&apos;d love to hear from you! Whether you have questions about our programs, 
-                want to partner with us, or just want to say hello, we&apos;re here to help.
+                We&apos;d love to hear from you! Whether you have questions
+                about our programs, want to partner with us, or just want to say
+                hello, we&apos;re here to help.
               </p>
             </div>
 
