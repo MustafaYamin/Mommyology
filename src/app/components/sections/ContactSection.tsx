@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { FaWhatsapp } from "react-icons/fa"; // ✅ Import WhatsApp icon
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
+    // TODO: Add automated test to verify form submission and email sending
     console.log('Form submitted:', formData);
   };
 
@@ -23,25 +24,20 @@ const ContactSection = () => {
     });
   };
 
+  // Updated with WhatsApp + email pre-fill
   const contactMethods = [
     {
       icon: "📧",
       title: "Email Us",
       description: "info.mommyology@gmail.com",
-      action: "mailto:info.mommyology@gmail.com"
+      action: "mailto:info.mommyology@gmail.com?subject=Hello%20Mommyology&body=I%20would%20like%20to%20know%20more%20about%20your%20programs."
     },
     {
-      icon: "📱",
-      title: "Call Us",
+      icon: <FaWhatsapp className="text-green-500" />, // ✅ WhatsApp Icon
+      title: "WhatsApp",
       description: "+92 332 3722139",
-      action: "tel:+92 332 3722139"
-    },
-    // {
-    //   icon: "📍",
-    //   title: "Visit Us",
-    //   description: "123 Nature Way, Green City",
-    //   action: "#"
-    // }
+      action: "https://wa.me/923323722139?text=Hello%20Mommyology%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20events!"
+    }
   ];
 
   return (
@@ -155,7 +151,7 @@ const ContactSection = () => {
             </form>
           </motion.div>
 
-          {/* Contact Information */}
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -174,54 +170,32 @@ const ContactSection = () => {
             </div>
 
             <div className="space-y-4 sm:space-y-6">
-            {contactMethods.map((method, index) => (
-  <motion.a
-    key={index}
-    href={method.action}
-    rel="noopener noreferrer"
-    target={method.action.startsWith("http") ? "_blank" : "_self"}
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: index * 0.1 }}
-    viewport={{ once: true }}
-    className="flex items-center p-4 sm:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-transparent hover:border-[#45C8F0] group"
-  >
-    <div className="text-3xl sm:text-4xl mr-3 sm:mr-4 group-hover:scale-110 transition-transform duration-300">
-      {method.icon}
-    </div>
-    <div>
-      <h4 className="text-base sm:text-lg font-bold text-[#6B5AA2] mb-1 font-['Comic_Sans_MS','Comic_Sans','cursive']">
-        {method.title}
-      </h4>
-      <p className="text-sm sm:text-base text-[#6B5AA2]/80">
-        {method.description}
-      </p>
-    </div>
-  </motion.a>
-))}
-
+              {contactMethods.map((method, index) => (
+                <motion.a
+                  key={index}
+                  href={method.action}
+                  rel="noopener noreferrer"
+                  target={method.action.startsWith("http") ? "_blank" : "_self"}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-center p-4 sm:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-transparent hover:border-[#45C8F0] group"
+                >
+                  <div className="text-3xl sm:text-4xl mr-3 sm:mr-4 group-hover:scale-110 transition-transform duration-300">
+                    {method.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-base sm:text-lg font-bold text-[#6B5AA2] mb-1 font-['Comic_Sans_MS','Comic_Sans','cursive']">
+                      {method.title}
+                    </h4>
+                    <p className="text-sm sm:text-base text-[#6B5AA2]/80">
+                      {method.description}
+                    </p>
+                  </div>
+                </motion.a>
+              ))}
             </div>
-
-            {/* <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-r from-[#FDE047]/20 to-[#45C8F0]/20 rounded-3xl p-6"
-            >
-              <h4 className="text-xl font-bold text-[#6B5AA2] mb-3 font-['Comic_Sans_MS','Comic_Sans','cursive']">
-                Office Hours
-              </h4>
-              <p className="text-[#6B5AA2]/80 mb-2">
-                Monday - Friday: 9:00 AM - 6:00 PM
-              </p>
-              <p className="text-[#6B5AA2]/80 mb-2">
-                Saturday: 10:00 AM - 4:00 PM
-              </p>
-              <p className="text-[#6B5AA2]/80">
-                Sunday: Closed
-              </p>
-            </motion.div> */}
           </motion.div>
         </div>
       </div>
@@ -230,4 +204,3 @@ const ContactSection = () => {
 };
 
 export default ContactSection;
-

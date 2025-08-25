@@ -15,7 +15,7 @@ const EventsSection = () => {
         viewport={{ once: true }}
         className="mt-24 text-center mb-14 py-5 bg-[#6B5AA2] flex flex-col items-center"
       >
-        <h3 className="text-2xl md:text-3xl font-bold text-[#45C8F0] mb-10 font-['Comic_Sans_MS','Comic_Sans','cursive']">
+        <h3 className="text-2xl md:text-3xl font-bold text-[#FDE047] mb-10 font-['Comic_Sans_MS','Comic_Sans','cursive']">
           Upcoming Events
         </h3>
         <div className="w-full flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6">
