@@ -1,10 +1,12 @@
 'use client'
 import HeroSection from "./components/sections/HeroSection";
-import AboutSection from "./components/sections/AboutSection";
-import ServicesSection from "./components/sections/ServicesSection";
-import EventsSection from "./components/sections/EventsSection";
-import ContactSection from "./components/sections/ContactSection";
+import dynamic from "next/dynamic";
 import TeamSection from "./components/sections/TeamSection";
+
+const AboutSection = dynamic(() => import("./components/sections/AboutSection"), { ssr: false, loading: () => <div style={{minHeight: '400px'}} /> });
+const ServicesSection = dynamic(() => import("./components/sections/ServicesSection"), { ssr: false, loading: () => <div style={{minHeight: '400px'}} /> });
+const EventsSection = dynamic(() => import("./components/sections/EventsSection"), { ssr: false, loading: () => <div style={{minHeight: '400px'}} /> });
+const ContactSection = dynamic(() => import("./components/sections/ContactSection"), { ssr: false, loading: () => <div style={{minHeight: '400px'}} /> });
 
 export default function HomePage() {
   return (

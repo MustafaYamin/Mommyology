@@ -52,7 +52,7 @@ const ActivityCardWithModal: React.FC<ActivityCardWithModalProps> = ({ activity,
             </button>
             
             {/* Images on the left */}
-            <div className="md:w-1/2 w-full flex flex-col gap-3 sm:gap-4 items-center justify-center mb-4 sm:mb-6 md:mb-0 md:mr-4 md:mr-8">
+            <div className="md:w-1/2 w-full flex flex-col gap-3 sm:gap-4 items-center justify-center mb-4 sm:mb-6 md:mb-0 md:mr-4">
               {activity.images.map((img: string, idx: number) => (
                 <Image 
                   key={idx} 

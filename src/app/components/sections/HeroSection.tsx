@@ -7,12 +7,16 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with gradient overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: "url('/Images/flames-and-forts/fnf1.jpg')",
-        }}
-      >
+      <div className="absolute inset-0 w-full h-full">
+        <Image
+          src="/Images/flames-and-forts/fnf1.jpg"
+          alt="Nature background"
+          fill
+          priority
+          placeholder="blur"
+          blurDataURL="/Images/flames-and-forts/fnf1.jpg"
+          style={{ objectFit: 'cover', objectPosition: 'center', zIndex: 0 }}
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-[#6B5AA2]/90 via-[#6B5AA2]/80 to-[#6B5AA2]/70" />
       </div>
 
@@ -89,3 +93,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection; 
+
