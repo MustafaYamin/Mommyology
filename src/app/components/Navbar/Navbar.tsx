@@ -2,17 +2,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 const funFont = "font-['Comic_Sans_MS','Comic_Sans','cursive'] font-extrabold tracking-wide";
 
 const navLinks = [
-  { href: '#about', label: 'Who We Are' },
-  { href: '#services', label: 'What We Do' },
-  { href: '#upcoming-events', label: 'Upcoming Events' },
-  { href: '#team', label: 'Our Team' },
-  { href: '#past-events', label: 'Past Events' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#about', label: 'Who We Are' },
+  { href: '/#services', label: 'What We Do' },
+  { href: '/#upcoming-events', label: 'Upcoming Events' },
+  { href: '/#team', label: 'Our Team' },
+  { href: '/#past-events', label: 'Past Events' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 const Navbar = () => {
