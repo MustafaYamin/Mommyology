@@ -2,11 +2,12 @@
 import { motion } from "framer-motion";
 import UpcomingEventCard from "../UpcomingEventCard";
 import PastEventGalleryCard from "../PastEventGalleryCard";
+import Link from "next/link";
 
 const EventsSection = () => {
   return (
-    <section 
-      id="events" 
+    <section
+      id="events"
       className="relative py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 overflow-hidden"
     >
       {/* Background decorative elements */}
@@ -29,7 +30,8 @@ const EventsSection = () => {
             Fun Events & Adventures
           </h1>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Creating magical memories through exciting activities and celebrations
+            Creating magical memories through exciting activities and
+            celebrations
           </p>
         </motion.div>
 
@@ -64,7 +66,7 @@ const EventsSection = () => {
                 Don&apos;t miss out on these amazing upcoming adventures!
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl  mx-auto">
               <motion.div
                 initial={{ x: -30, opacity: 0 }}
@@ -94,7 +96,47 @@ const EventsSection = () => {
                   cost="Rs.1999/- Per Kid"
                 />
               </motion.div>
+
+              {/* <motion.div
+                initial={{ x: 30, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <UpcomingEventCard
+                  title="Claws and Paws"
+                  image="/Images/upcomings/messyplay.jpg"
+                  bgImage="/Images/upcomings/messyplay.jpg"
+                  time="21st Sep, 5:00 PM - 6:30 PM"
+                  cost="Rs.1499/- Per Kid"
+                />
+              </motion.div> */}
+
+              {/* <motion.div
+                initial={{ x: 30, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <UpcomingEventCard
+                  title="Claws and Paws"
+                  image="/Images/upcomings/pottery.jpg"
+                  bgImage="/Images/upcomings/pottery.jpg"
+                  time="21st Sep, 4:00 PM - 5:00 PM"
+                  cost="Rs.1199/- Per Kid"
+                />
+              </motion.div> */}
             </div>
+
+<div className="flex justify-center mt-7">
+            <Link
+              href="UpcomingEvents"
+              className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              View All
+            </Link>
+          </div>
+
           </div>
         </motion.div>
 
@@ -125,14 +167,15 @@ const EventsSection = () => {
               Past Events Gallery
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Relive the joy and excitement from our previous events. Each celebration created 
+              Relive the joy and excitement from our previous events. Each
+              celebration created
               <br className="hidden sm:block" />
               unforgettable memories for children and families.
             </p>
           </div>
 
           {/* Events Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 title: "Neon Party",
@@ -141,9 +184,9 @@ const EventsSection = () => {
                   "/Images/neonparty/np2.jpg",
                   "/Images/neonparty/np3.jpg",
                   "/Images/neonparty/np4.jpg",
-                  "/Images/neonparty/np5.jpg"
+                  "/Images/neonparty/np5.jpg",
                 ],
-                delay: 0.1
+                delay: 0.1,
               },
               {
                 title: "Funtopia",
@@ -151,102 +194,41 @@ const EventsSection = () => {
                   "/Images/funtopia/funtopia1.jpg",
                   "/Images/funtopia/funtopia2.jpg",
                   "/Images/funtopia/funtopia3.jpg",
-                  "/Images/funtopia/funtopia4.jpg"
+                  "/Images/funtopia/funtopia4.jpg",
                 ],
-                delay: 0.2
+                delay: 0.2,
               },
               {
-                title: "Farmtastic",
+                title: "Farmtastic Adventures",
                 images: [
                   "/Images/farmtastic/farm1.jpg",
                   "/Images/farmtastic/farm2.jpg",
                   "/Images/farmtastic/farm3.jpg",
-                  "/Images/farmtastic/farm4.jpg"
+                  "/Images/farmtastic/farm4.jpg",
                 ],
-                delay: 0.3
+                delay: 0.3,
               },
+
               {
-                title: "Flames and Fortes",
-                images: [
-                  "/Images/flames-and-forts/fnf1.jpg",
-                  "/Images/flames-and-forts/fnf2.jpg",
-                  "/Images/flames-and-forts/fnf3.jpg",
-                  "/Images/flames-and-forts/fnf4.jpg"
-                ],
-                delay: 0.4
-              },
-              {
-                title: "Fishing",
-                images: [
-                  "/Images/fishing/fishing1.jpg",
-                  "/Images/fishing/fishing2.jpg",
-                  "/Images/fishing/fishing3.jpg",
-                  "/Images/fishing/fishing4.jpg",
-                  "/Images/fishing/fishing5.jpg"
-                ],
-                delay: 0.5
-              },
-              {
-                title: "Messy Playday",
-                images: [
-                  "/Images/messy-play-day/mpd1.jpg",
-                  "/Images/messy-play-day/mpd2.jpg",
-                  "/Images/messy-play-day/mpd3.jpg",
-                  "/Images/messy-play-day/mpd4.jpg",
-                  "/Images/messy-play-day/mpd5.jpg"
-                ],
-                delay: 0.6
-              },
-              {
-                title: "World Book Day",
-                images: [
-                  "/Images/world-book-day/wbd1.jpg",
-                  "/Images/world-book-day/wbd2.jpg",
-                  "/Images/world-book-day/wbd3.jpg",
-                  "/Images/world-book-day/wbd4.jpg"
-                ],
-                delay: 0.7
-              },
-              {
-                title: "Spring Fling",
-                images: [
-                  "/Images/spring-fling/springfling1.jpg",
-                  "/Images/spring-fling/springfling2.jpg",
-                  "/Images/spring-fling/springfling3.jpg",
-                  "/Images/spring-fling/springfling4.jpg"
-                ],
-                delay: 0.8
-              },
-              {
-                title: "Mothers Day",
-                images: [
-                  "/Images/Mothers-day/md1.jpg",
-                  "/Images/Mothers-day/md2.jpg",
-                  "/Images/Mothers-day/md3.jpg",
-                  "/Images/Mothers-day/md4.jpg"
-                ],
-                delay: 0.9
-              },
-              {
-                title: "Mangroves",
+                title: "Mangroves Island Explorers",
                 images: [
                   "/Images/Mangroves-and-team/mangrove1.jpg",
                   "/Images/Mangroves-and-team/mangrove2.jpg",
                   "/Images/Mangroves-and-team/mangrove3.jpg",
                   "/Images/Mangroves-and-team/mangrove4.jpg",
-                  "/Images/Mangroves-and-team/mangrove5.jpg"
+                  "/Images/Mangroves-and-team/mangrove5.jpg",
                 ],
-                delay: 1.0
-              }
+                delay: 1.0,
+              },
             ].map((event) => (
               <motion.div
                 key={event.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.6, 
+                transition={{
+                  duration: 0.6,
                   delay: event.delay,
-                  ease: "easeOut"
+                  ease: "easeOut",
                 }}
                 viewport={{ once: true }}
                 className="group"
@@ -258,29 +240,16 @@ const EventsSection = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* Call to Action */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="text-center mt-12 sm:mt-16 lg:mt-20"
-          >
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border border-purple-100 max-w-2xl mx-auto">
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-3 sm:mb-4 font-['Comic_Sans_MS','Comic_Sans','cursive']">
-                Want to Join the Fun?
-              </h3>
-              <p className="text-gray-600 text-sm sm:text-base mb-6 leading-relaxed">
-                Stay updated with our latest events and be the first to know about new adventures!
-              </p>
-              <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 px-6 sm:px-8 rounded-full hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                Get Notified
-              </button>
-             </div> 
-          </motion.div> */}
         </motion.div>
       </div>
+        <div className="flex justify-center mb-12">
+            <a
+              href="/Gallery"
+              className="px-8 mt-6  py-4 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              View All
+            </a>
+          </div>
     </section>
   );
 };

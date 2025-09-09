@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 interface UpcomingEventCardProps {
   title: string;
@@ -27,12 +29,10 @@ const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({
     setOpen(false);
   };
   
+  const router = useRouter();
   const handleBookClick = () => {
     setOpen(false);
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    router.push('/#contact');
   };
 
   return (

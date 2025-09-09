@@ -69,11 +69,27 @@ const TeamSection = () => {
     {
       id: 7,
       name: "Mustafa Khilji",
-      role: "Team Member",
+      role: "Team Lead",
       image: "/Images/team/mustafa.jpg",
       // bio: "Community builder who connects families with nature and creates lasting partnerships.",
       socials: "https://instagram.com/jameswilson"
     },
+    {
+      id: 8,
+      name: "Marium Yamin",
+      role: "Team Member",
+      image: "/Images/team/marium.jpg",
+      // bio: "Community builder who connects families with nature and creates lasting partnerships.",
+      socials: "https://instagram.com/jameswilson"
+    },
+    // {
+    //   id: 9,
+    //   name: "Mustafa Khilji",
+    //   role: "Team Member",
+    //   image: "/Images/team/mustafa.jpg",
+    //   // bio: "Community builder who connects families with nature and creates lasting partnerships.",
+    //   socials: "https://instagram.com/jameswilson"
+    // },
   ];
 
   // const handleSocialClick = (url: string) => {
